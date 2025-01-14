@@ -1,80 +1,72 @@
-# CryptoChartApp
+# CoderType - Speed Typing Game for Coders
 
-CryptoChartApp is an intuitive application designed to provide real-time visualization of cryptocurrency prices. By leveraging the CoinMarketCap API, it displays dynamic, interactive charts for selected cryptocurrencies and calculates price changes over various time intervals. Whether you're a trader or an enthusiast, this app helps you monitor market trends with ease.
+CoderType is a speed typing game designed for coders. It challenges users to type snippets of code as fast and accurately as possible. The game includes multiple repositories and files to practice typing, with a focus on improving typing speed and accuracy while engaging with code.
 
 ## Features
-- **Real-Time Cryptocurrency Tracking**: Stay up-to-date with the latest price movements.
-- **Interactive Line Charts**: Visualize price changes with smooth, interactive charts.
-- **Time Interval Price Analysis**: View price changes over the last minute, hour, day, and week.
-- **Customizable Display**: Adjust the number of cryptocurrency charts displayed in the application.
-- **Modern User Interface**: A sleek and visually appealing design for enhanced usability.
 
-## Requirements
-To get started, you'll need:
-1. An account on [CoinMarketCap](https://coinmarketcap.com/api/).
-2. A personal API key from the CoinMarketCap API dashboard.
+- **Code snippets** from various repositories to practice typing.
+- **Timed sessions** to improve typing speed.
+- **Accuracy tracking** with detailed results (characters typed, accuracy, errors).
+- **Interactive terminal interface** mimicking a command-line environment.
+- **Typing challenges** with multiple rounds.
+- **Replay option** after each round to improve performance.
 
-## Setup Instructions
-Follow these steps to set up and run the application:
+## Installation
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/CryptoChartApp.git
-   ```
+To run the game locally, follow these steps:
 
-2. **Navigate to the Project Directory**:
-   ```bash
-   cd CryptoChartApp
-   ```
+### 1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/codertype.git
+```
 
-3. **Insert Your API Key**:
-   Open the `CryptoAPI.java` file and replace `<YOUR_API_KEY>` with your API key:
-   ```java
-   private static final String API_KEY = "<YOUR_API_KEY>";
-   ```
+### 2. Install dependencies:
+Make sure you have [Node.js](https://nodejs.org/) installed, then install the required dependencies.
 
-4. **Build the Project**:
-   Use Maven to build the application:
-   ```bash
-   mvn clean install
-   ```
+```bash
+cd codertype
+npm install
+```
 
-5. **Run the Application**:
-   Launch the app using Maven:
-   ```bash
-   mvn exec:java
-   ```
+### 3. Run the game:
+After installing dependencies, you can start the game by running the following command:
 
-6. **Customize the Display** (Optional):
-   Adjust the number of cryptocurrency charts displayed by increasing or decreasing the value in the `Main.java` file:
-   ```java
-   private static final int NUMBER_OF_CHARTS = <desired number>;
-   ```
+```bash
+npm start
+```
 
-When the application starts, it will open a window displaying real-time cryptocurrency charts and price change labels.
+This will start a local server, and you can access the game through your web browser.
 
-## How It Works
-1. The application retrieves live cryptocurrency data from the CoinMarketCap API in JSON format.
-2. The JSON data is parsed to extract relevant price and time interval information.
-3. Dynamic charts are generated using the JFreeChart library and updated every second using a Timer.
-4. Price changes over multiple time frames are calculated and displayed alongside the charts.
+## How to Play
 
-## Dependencies
-This project relies on the following libraries:
-- **Spring Boot**: For handling API requests.
-- **Jackson Databind**: For parsing JSON data.
-- **JFreeChart**: For creating and displaying charts.
+1. **Start the game** by selecting a repository from the list.
+2. **Type the code snippet** shown on the screen as quickly and accurately as possible.
+3. **View your results** after each round, including characters typed, accuracy, and errors.
+4. **Choose to replay** after each round to improve your speed and accuracy.
+
+## Keyboard Controls
+
+- **Enter**: Submit your typed input.
+- **Backspace**: Correct any mistakes.
+- **Tab**: Navigate through spaces and indentation.
+
+## Contributing
+
+If you'd like to contribute to this project, feel free to fork the repository, create a new branch, and submit a pull request with your changes. Please ensure that your code follows the existing style and includes tests where applicable.
+
+### Issues
+If you encounter any issues or bugs, please open an issue in the GitHub repository and provide as much detail as possible to help resolve it.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
-Special thanks to:
-- [CoinMarketCap API](https://coinmarketcap.com/api/) for providing real-time cryptocurrency data.
 
-## Future Enhancements
-- Adding support for more time intervals (e.g., monthly and yearly trends).
-- Enabling user-specific cryptocurrency selections via a configuration file or UI.
-- Providing advanced analytics, such as average price trends or market comparisons.
+- [Node.js](https://nodejs.org/) for backend runtime.
+- [Monospace font](https://fonts.google.com/) for a terminal-like UI.
+- Inspired by various speed typing games and coding challenges.
 
-With CryptoChartApp, you'll gain insights into cryptocurrency trends in real time. Adjust it to suit your needs and explore the dynamic world of digital assets.
+---
+
+Enjoy typing, and may your coding speed increase with every round! 🚀

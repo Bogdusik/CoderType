@@ -80,4 +80,4 @@ CoderType/
 - **User Experience**: Designed intuitive game flow with clear feedback, replay functionality, and progress tracking
 - **Performance**: Optimized real-time typing detection and character matching for smooth gameplay
 
-Fork it, use it, improve it — open to PRs!
+Fork it, use it, improve it - open to PRs!

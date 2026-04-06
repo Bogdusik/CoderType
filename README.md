@@ -2,12 +2,6 @@
 
 A speed typing game designed specifically for coders. Challenges users to type code snippets from various repositories as fast and accurately as possible. Features an interactive terminal interface, accuracy tracking, and multiple rounds to improve coding speed and precision.
 
-## Demo
-
-![Game Interface](screenshots/game-interface.png)
-![Terminal View](screenshots/terminal.png)
-![Results Screen](screenshots/results.png)
-
 ## Why It's Cool
 
 - **Code-Focused Typing**: Practice typing with real code snippets from popular repositories (React, Linux, TensorFlow) instead of plain text

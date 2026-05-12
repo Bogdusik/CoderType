@@ -1,5 +1,5 @@
-import { Repo, RepoFile, repoOptions } from "./data";
-import { clearEditor, EditorResult, startEditor } from "./editor";
+import { repoOptions } from "./data";
+import { clearEditor, startEditor } from "./editor";
 import {
   chooseOption,
   clearTerminal,
@@ -76,9 +76,9 @@ const runGame = async () => {
     clearTerminal();
     await writeResult(result);
 
-    wantsToPlayAgain = (await readLine()) === "y";
+    wantsToPlayAgain = (await readLine()).toLowerCase() === "y";
     round++;
   }
 };
 
-runGame();
+runGame().catch(console.error);

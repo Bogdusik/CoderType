@@ -50,7 +50,7 @@ const normalizeCode = (code) => {
 
 export const startEditor = (code) => {
 	code = normalizeCode(code);
-	return new Promise (async resolve => {
+	return new Promise(resolve => {
 		const allLines = code.split(/[ \t]*\r?\n/)
 			.filter(l => l.trim().length > 0)
 			.map(l => l + " ");
@@ -96,6 +96,7 @@ export const startEditor = (code) => {
 			lineCorrectness = []
 			element.classList.remove(cursorClassName);
 			element = element.nextElementSibling?.nextElementSibling;
+			if (!element) return;
 			element.classList.remove(nextClassName);
 			element.classList.add(cursorClassName);
 			advanceWhitespace();
@@ -112,8 +113,7 @@ export const startEditor = (code) => {
 		}
 
 		const advanceWhitespace = () => {
-			let count = 0;
-			while (charIndex + count < line.length - 1 && whitespaceRegex.test(line[charIndex + count])) {
+			while (charIndex < line.length - 1 && whitespaceRegex.test(line[charIndex])) {
 				advanceCharacter(true);
 			}
 		}
@@ -151,7 +151,7 @@ export const startEditor = (code) => {
 				totalCharacters++;
 
 				if (charIndex === line.length - 1 && lineIndex === pageLines.length - 1) {
-					if (firstLineIndex < allLines.length - 1) {
+					if (firstLineIndex + pageLines.length < allLines.length) {
 						advancePage();
 					} else {
 						endTyping();
@@ -166,7 +166,7 @@ export const startEditor = (code) => {
 					advanceLine();
 				}
 			}
-			printStats(getResult());
+			if (startTime !== 0) printStats(getResult());
 		}
 
 		const listener = (event) => {

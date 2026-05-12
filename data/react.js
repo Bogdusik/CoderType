@@ -1,5 +1,3 @@
-import { Repo } from ".";
-
 export const reactRepo = {
   label: "React",
   url: "https://github.com/facebook/react",

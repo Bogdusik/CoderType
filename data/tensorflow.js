@@ -1,5 +1,3 @@
-import { Repo } from ".";
-
 export const tensorFlowRepo = {
   label: "TensorFlow",
   url: "https://github.com/tensorflow/tensorflow",

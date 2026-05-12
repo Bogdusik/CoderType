@@ -1,5 +1,3 @@
-import { Repo } from ".";
-
 export const linuxRepo = {
   label: "Linux Kernel",
   url: "https://github.com/torvalds/linux",

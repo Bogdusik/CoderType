@@ -58,7 +58,7 @@ const writeLineBreak = () => {
 	terminalElement.appendChild(document.createElement("br"));
 }
 
-const inputRegex = /^[\w\d ]$/
+const inputRegex = /^[\w ]$/
 
 export const readLine = () => {
 	return new Promise(resolve => {

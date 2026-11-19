@@ -1,77 +1,69 @@
+<div align="center">
+
+<img src="docs/media/typing.gif" alt="CoderType in a terminal: choosing the React repo, then typing real React source code over a grey ghost of it, with a live counter of time left, characters typed and errors" width="760">
+
 # CoderType
 
-A speed typing game designed specifically for coders. Challenges users to type code snippets from various repositories as fast and accurately as possible. Features an interactive terminal interface, accuracy tracking, and multiple rounds to improve coding speed and precision.
+**A typing game for programmers: instead of plain sentences you type real source code from Linux, React and TensorFlow, against a 45-second clock.**
 
-## Why It's Cool
+[![Play online](https://img.shields.io/badge/play-online-000000?logo=vercel&logoColor=white)](https://coder-type-bogdus1k.vercel.app/)
+![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=black)
+![No runtime dependencies](https://img.shields.io/badge/runtime_dependencies-0-2EA44F)
+[![License: MIT](https://img.shields.io/badge/license-MIT-2EA44F)](LICENSE)
 
-- **Code-Focused Typing**: Practice typing with real code snippets from popular repositories (React, Linux, TensorFlow) instead of plain text
-- **Terminal Interface**: Authentic command-line environment that mimics real coding experience
-- **Detailed Metrics**: Track characters typed, accuracy percentage, errors, and typing speed
-- **Multiple Challenges**: Various code snippets and difficulty levels to keep practice engaging
-- **Replay System**: Improve performance by replaying rounds and tracking progress over time
-- **Simple & Fast**: Lightweight vanilla JavaScript implementation with no dependencies
+[Play online](https://coder-type-bogdus1k.vercel.app/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
 
-## Tech Stack
+</div>
 
-- **Frontend**: Vanilla JavaScript, HTML5, CSS3
-- **Styling**: Custom CSS with terminal-themed design
-- **Deployment**: Vercel
+## How it works
 
-## How to Run Locally
+1. A terminal greets you and asks which repository to practise on: **Linux Kernel**, **React** or **TensorFlow**.
+2. It picks a real file from that repo and shows three lines at a time as a grey ghost. You type over it; correct characters turn white, mistakes count as errors, `Backspace` fixes them and `Enter` moves to the next line. Indentation is skipped for you.
+3. After 45 seconds, or when you finish the snippet, you get your results and can play again.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Bogdusik/CoderType.git
-   cd CoderType
-   ```
+<img src="docs/media/results.png" alt="Results: correct characters per minute, total errors and accuracy, then an offer to play again" width="560">
 
-2. **Open in browser:**
-   Simply open `index.html` in your web browser, or use a local server:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js (if you have http-server installed)
-   npx http-server
-   ```
-   Application will be available at `http://localhost:8000`
+**Results:** correct characters per minute, total errors and accuracy for the round.
 
-> **Note**: This is a static website with no build process or dependencies required.
+## Tech stack
 
-## Project Structure
+- Plain JavaScript modules, HTML and CSS: no framework and no runtime dependencies.
+- The terminal and the editor are `<pre>` elements driven by a keydown listener, with one `<span>` per character.
+- The code snippets live in [`data/`](data/) (`linux.js`, `react.js`, `tensorflow.js`).
+- The deployed page loads a bundle built with [Parcel](https://parceljs.org/) (`index.*.js` and `index.*.css` in the root), because the source modules import each other without file extensions. Hosted on Vercel.
+
+## Run it locally
+
+```bash
+git clone https://github.com/Bogdusik/CoderType.git
+cd CoderType
+python3 -m http.server 8000      # or: npx http-server
+```
+
+Open http://localhost:8000. `index.html` uses the committed bundle, so no build step is needed to play.
+
+## Project structure
 
 ```
 CoderType/
-├── index.html                  # Main HTML file
-├── index.js                    # Main game logic
-├── editor.js                   # Code editor functionality
-├── terminal.js                 # Terminal interface
-├── keyboard.js                 # Keyboard visualization
-│
-├── data/                       # Code Snippets
-│   ├── index.js               # Main data file
-│   ├── react.js               # React code snippets
-│   ├── linux.js               # Linux commands
-│   └── tensortflow.js         # TensorFlow code
-│
-├── styles/                     # CSS Styles
-│   ├── index.css              # Main styles
-│   ├── reset.css              # CSS reset
-│   └── theme.css              # Theme styles
-│
-├── images/                     # Static Assets
-│   └── apple-touch-icon.png
-│
-└── [config files]             # Configuration files
+├── index.html          # Page: terminal, editor and stats panes; loads the bundle
+├── index.js            # Game flow: choose a repo, play a round, show results, play again
+├── editor.js           # Typing editor: ghost text, cursor, errors, paging, 45 s timer
+├── terminal.js         # Terminal output and input with a typing animation
+├── keyboard.js         # Key names
+├── data/               # Code snippets per repository
+├── styles/             # Source CSS (reset, theme, layout)
+├── images/             # Favicon
+└── index.*.js, *.css   # Parcel build output served in production
 ```
 
-## What I Learned
+## What I learned
 
-- **Vanilla JavaScript**: Built complete game logic using pure JavaScript without frameworks, understanding DOM manipulation and event handling
-- **Game Development**: Implemented typing game mechanics including timer, accuracy calculation, error tracking, and score computation
-- **Terminal UI Design**: Created authentic terminal interface using CSS and JavaScript to mimic command-line environment
-- **Code Organization**: Structured codebase with modular JavaScript files for maintainability
-- **User Experience**: Designed intuitive game flow with clear feedback, replay functionality, and progress tracking
-- **Performance**: Optimized real-time typing detection and character matching for smooth gameplay
+- **Vanilla JavaScript:** the whole game is DOM updates and one keydown listener, without a framework.
+- **Typing-game mechanics:** comparing every key with the expected character, backspace, paging through a file and a fixed-length round.
+- **Scoring:** correct characters per minute and accuracy from correct versus total keystrokes.
+- **Terminal-style UI:** a typed-out terminal with a blinking cursor built from CSS and `<pre>` elements.
 
-Fork it, use it, improve it - open to PRs!
+## License
+
+[MIT](LICENSE)
